@@ -1,0 +1,48 @@
+
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> 
+  
+    </head>
+    <div style="font-family: Roboto Slab;" >
+        <div style="width:99%; height: 50px; background: #40739e; display: flex; align-items: center;">
+          <div style="font-weight: bolder; font-size: 20px; color:#fff; margin-left: 10px;">EMPLOYEE DASHBOARD</div>
+         <div style="font-weight:500; font-size: 20px; color:#fff;padding-right: 10px; margin-left: auto;">Logout</div>
+         </div>
+
+        
+        <div style="display: flex; flex-direction: row;">
+        <div style="background:#f3a683;width: 180px; height: 580px;margin: 10px; border-radius: 20px;">
+           <div style="display: flex; justify-content: center;align-items: center; flex-direction: column;padding: 15px;">
+            
+                <img src='/images/<%=data.picture%>'  style="width: 80px;height: 80px; border-radius: 40px;"/>
+                <div style="color:#ff4757; font-size: 16px; font-weight: bold;margin-top:3px;"><%=data.adminname%> </div>
+                <div style="color:#ff4757; font-size: 14px; font-weight: 500px;margin-top:3px;"><%=data.mobileno%></div>
+                <div style="color:#ff4757; font-size: 12px; font-weight: 500px;margin-top:3px;"><%=data.emailid%></div>
+
+
+            
+           </div> 
+           <div style="display: flex; justify-content: center;align-items: center; flex-direction: column;padding: 15px; margin-top: 10px;">
+            <a href="/employee/employeeregister" target="mw" style="color:#ff4757;text-decoration: none; cursor: pointer;"><div style="font-size: 16px; font-weight: bold;margin-top:8px;">Add Employee</div></a>
+
+
+            <a href="/employee/showallemployee" target="mw" style="color:#ff4757;text-decoration: none; cursor: pointer;"><div style="font-size: 16px; font-weight: bold;margin-top:8px;">Employee List</div></a>
+            <a href="/employee/showallemployee" target="mw" style="color:#ff4757;text-decoration: none; cursor: pointer;"><div style="font-size: 16px; font-weight: bold;margin-top:8px;">Update Employee</div></a>
+            <a href="admin/logout"  style="color:#ff4757;text-decoration: none; cursor: pointer;"><div style="font-size: 16px; font-weight: bold;margin-top:8px;">Logout</div></a>
+
+
+
+            </div>
+        </div>
+
+        <div >
+            <iframe name="mw" frameborder="0" width="1290" height="600"></iframe>
+          </div>
+    </div>
+      
+    </div>
+
+</html>

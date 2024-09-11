@@ -1,0 +1,155 @@
+<html>
+    <head>
+      <link href="/stylesheets/style.css" rel="stylesheet" />
+     <script  src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
+     <script src="/javascripts/cstatecity.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> 
+</head>
+<form action="/employee/edit_data" method="post">
+   <div class="root">
+     
+    <div class="box" >
+        <div class="container">
+        <input type="hidden" name="employeeid" value="<%=data.employeeid %>">
+
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="headstyle">
+                <img src="/images/emp.png"  width="30"/>
+                <div class="textstyle">Edit Employee</div>
+                <a href="/employee/showallemployee"  style="margin-left: auto; text-decoration: none; cursor: pointer;">  <img src="/images/list.png"  width="30" /></a>
+              </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-sm-4">
+                <% var name=data.employeename.split(' ')
+                  var tname=Array(3)
+                  if(name.length==2)
+                  { tname[0]=name[0]
+                    tname[2]=name[2]}
+                  else
+                  {tname=name}   
+                %>
+                  <input value="<%=tname[0] %>" type="text" class="form-control" placeholder="First Name" name="firstname">
+            </div>
+            <div class="col-sm-4">
+                <input value="<%=tname[1] %>" type="text" class="form-control" placeholder="Middle Name" name="middlename">
+          </div>
+          <div class="col-sm-4">
+            <input value="<%=tname[2] %>" type="text" class="form-control" placeholder="Last Name" name="lastname">
+          </div>
+        </div>        
+        
+
+        <div class="row" style="margin-top: 10px;">
+          <%  var ms=''
+              var fs=''
+           if(data.gender=='Male')
+           {
+            ms='checked'
+
+
+           }
+           else
+           { fs='checked'}
+          %>
+          <div class="col-sm-4 centerAlign"  >
+            <div class="form-check form-check-inline">
+              <input <%=ms %> class="form-check-input" type="radio" name="gender" id="male" value="Male">
+              <label  class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input <%=fs %> class="form-check-input" type="radio" name="gender" id="female" value="Female">
+              <label class="form-check-label" for="female">Female</label>
+            </div>
+          </div>
+          
+          <div class="col-sm-4">
+            <input value="<%=data.birthdate %>" type="date" class="form-control" placeholder="Birth Date" name="dob">
+          </div>
+  
+          <div class="col-sm-4 centerAlign"  >
+            <%  
+               var st=new Array(3)
+               st[0]=data.work.includes('Accounts')?'Checked':''
+               st[1]=data.work.includes('Sales')?'Checked':''
+               st[2]=data.work.includes('Admin')?'Checked':''
+                
+
+            %>
+            <div class="form-check form-check-inline">
+              <input <%=st[0] %> class="form-check-input" type="checkbox" name="work" id="accounts" value="Accounts">
+              <label class="form-check-label" for="accounts">Accounts</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input <%=st[1] %> class="form-check-input" type="checkbox" name="work" id="sales" value="Sales">
+              <label class="form-check-label" for="Sales">Sales</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input <%=st[2] %> class="form-check-input" type="checkbox" name="work" id="admin" value="Admin">
+              <label class="form-check-label" for="admin">Admin</label>
+            </div>
+          </div>
+        </div>    
+ 
+        <div class="row" style="margin-top: 10px;">
+          <div class="col-sm-6">
+                <input value="<%=data.salary %>" type="text" class="form-control" placeholder="Salary" name="salary">
+          </div>
+          <div class="col-sm-6">
+            <select class="form-select" name="department" aria-label="Default select example">
+              <option><%=data.department %></option>
+              
+              <option>Sales</option>
+              <option>Admin</option>
+              <option>Accounts</option>
+              <option>Production</option>
+              <option>Purchase</option>
+            </select>
+        </div>
+       </div>        
+      
+       <div class="row" style="margin-top: 10px;">
+        <div class="col-sm-12">
+              <input value="<%=data.Address %>" type="text" class="form-control" placeholder="Address" name="address">
+        </div>
+       </div> 
+       
+       <div class="row" style="margin-top: 10px;">
+        <div class="col-sm-6">
+          <select class="form-select" id="state" name="state" aria-label="Default select example">
+            <option value="<%=data.state %>"><%=data.statename %></option>
+          </select>
+        </div>
+        <div class="col-sm-6">
+          <select class="form-select" id="city"  name="city" aria-label="Default select example">
+            <option value="<%=data.city %>"><%=data.cityname %></option>
+          </select>
+        </div>
+       </div> 
+
+       
+
+       <div class="row" style="margin-top: 10px;">
+        <div class="col-sm-6 centerAlign"">
+          <button name="btn" value="Edit" style="width: 70%;" type="submit" class="btn btn-primary">Update</button>
+        </div>
+        <div class="col-sm-6 centerAlign">
+          <button name="btn" value="Delete" type="submit" style="width: 70%;" class="btn btn-primary" >Delete</button>
+        </div>
+       </div>   
+
+       
+
+        </div>   
+        </div>
+      
+   </div> 
+   </form>
+</html>

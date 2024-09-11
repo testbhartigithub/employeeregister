@@ -1,0 +1,22 @@
+<html>
+    <center>
+      <form action="/employee/editpicture" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="employeeid" value="<%=data.employeeid %>">
+
+        <div style="font-family: Roboto Slab; font-size: 28px; font-weight: bold;">
+         <%=data.employeename %>
+        </div>
+        <div>
+            <img src="/images/<%=data.picture %>" style="width:400px; height:400px; border-radius: 200px; margin:20px;"
+
+        </div>
+        <div style="font-family: Roboto Slab; font-size: 18px; font-weight: bold; margin: 20px;" >
+        Edit Picture
+        </div>
+        <div style="margin: 20px;">
+            <input type="file" name="picture">
+        </div>
+        <div style="margin: 20px;"><input required type="submit" value="Edit Picture"></div>
+       </form> 
+    </center>
+</html>
